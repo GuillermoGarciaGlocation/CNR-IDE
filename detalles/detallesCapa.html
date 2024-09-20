@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles</title>
-    <script>src="./resources/js/detalles.js"</script>
+    <script src="./resources/js/detalles.js" defer></script>
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-10 col-md-10 mx-auto"> <!-- Asegúrate de que sea 10 para mayor ancho -->
-                <div class="card shadow-sm">
-                    <img id="imgCapa1" class="bd-placeholder-img card-img-top rounded" width="100%" height="300" alt="Imagen descriptiva">
-                    <div class="card-body">
-                      <p id="capa1Categoria" class="card-text fw-bold" style="color: orange;"></p>
-                      <p id="capa1Descripcion" class="card-text fw-bold"></p>
-                      <small class="text-body-secondary">
-                          <a href="#"id="verDetalleCapa" class="btn btn-sm btn-secondary">Ver más</a>
-                          <a href="#"id="verDetalleCapa" class="btn btn-sm btn-secondary">Ver más</a>
-                        </small>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-10 col-md-10 mx-auto"> <!-- Asegúrate de que sea 10 para mayor ancho -->
+                    <div class="card shadow-sm d-flex flex-row"> 
+                        <img id="imgCapaDetalle" class="bd-placeholder-img card-img-top rounded" width="50%" height="300" alt="Imagen descriptiva">
+                        <div class="card-body d-flex flex-column">
+                            <p id="capaCategoriaDetalle" class="card-text fw-bold" style="color: orange;"></p>
+                            <strong>
+                                <p id="capanNombreDetalle" class="card-text fw-bold"></p>
+                            </strong>
+                            <p id="capaDescripcionDetalle" class="card-text"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="#">
+                                        <img src="../resources/img/metadatosIcon.PNG" width="60" height="55" alt="Metadatos Icon">
+                                    </a>    
+                                    <a href="#">
+                                        <img src="../resources/img/pdfIcon.PNG" width="4%" height="50" alt="PDF Icon">
+                                    </a>  
+                                    <button class="btn btn-sm btn-secondary">Ver más</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section> 
+    </main>       
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
+            if (selectedItem) {
+                document.getElementById('imgCapaDetalle').src = selectedItem.img;
+                document.getElementById('capaCategoriaDetalle').textContent = selectedItem.categoria;
+                document.getElementById('capanNombreDetalle').textContent = selectedItem.name;
+                document.getElementById('capaDescripcionDetalle').textContent = selectedItem.description;
+            }
+        });
+    </script>
 </body>
 </html>
