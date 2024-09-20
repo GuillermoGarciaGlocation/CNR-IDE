@@ -11,23 +11,25 @@
     <main>
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
-                <div class="col-lg-10 col-md-10 mx-auto"> <!-- Asegúrate de que sea 10 para mayor ancho -->
-                    <div class="card shadow-sm d-flex flex-row"> 
-                        <img id="imgCapaDetalle" class="bd-placeholder-img card-img-top rounded" width="50%" height="300" alt="Imagen descriptiva">
-                        <div class="card-body d-flex flex-column">
-                            <p id="capaCategoriaDetalle" class="card-text fw-bold" style="color: orange;"></p>
-                            <strong>
-                                <p id="capanNombreDetalle" class="card-text fw-bold"></p>
-                            </strong>
-                            <p id="capaDescripcionDetalle" class="card-text"></p>
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <div class="card shadow-sm d-flex flex-row">
+                        <img id="imgCapaDetalle" class="bd-placeholder-img card-img-left rounded" style="width: 50%; height: 300px;" alt="Imagen descriptiva">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <p id="capaCategoriaDetalle" class="card-text fw-bold" style="color: orange;"></p>
+                                <strong>
+                                    <p id="capanNombreDetalle" class="card-text fw-bold"></p>
+                                </strong>
+                                <p id="capaDescripcionDetalle" class="card-text"></p>
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="#">
-                                        <img src="../resources/img/metadatosIcon.PNG" width="60" height="55" alt="Metadatos Icon">
-                                    </a>    
-                                    <a href="#">
-                                        <img src="../resources/img/pdfIcon.PNG" width="4%" height="50" alt="PDF Icon">
-                                    </a>  
+                                        <img style="border-radius: 50%;" src="../resources/img/metadatosIcon.PNG" width="30" height="30" alt="Metadatos Icon">
+                                    </a>
+                                    <a id="openModal">
+                                        <img style="border-radius: 50%;" src="../resources/img/pdfIcon.PNG" width="30" height="40" alt="PDF Icon">
+                                    </a>
                                     <button class="btn btn-sm btn-secondary">Ver más</button>
                                 </div>
                             </div>
@@ -35,8 +37,9 @@
                     </div>
                 </div>
             </div>
-        </section> 
-    </main>       
+        </section>
+    </main>
+        
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));

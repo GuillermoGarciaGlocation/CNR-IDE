@@ -1,173 +1,106 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="./resources/js/color-modes.js"></script>
+<head>
+    <script src="./resources/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.122.0">
-    <title>CNR - Centro nacional de registros</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <title>CNR - Centro Nacional de Registros</title>
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
     <script src="./resources/js/servicios.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .card-body {
+            position: relative;
+            height: 300px; /* Ajusta según el tamaño que necesites */
         }
-      }
-
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 <header data-bs-theme="dark">
-  <div class="navbar bg-body-tertiar">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center">
-        <img src="./resources/img/logo-cnr.jpg" width="75%" height="60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></img>
-      </a>
+    <div class="navbar bg-body-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center">
+                <img src="./resources/img/logo-cnr.jpg" width="75%" height="60" aria-hidden="true" class="me-2">
+            </a>
+        </div>
     </div>
-  </div>
 </header>
 <main>
+    <section class="py-5 text-center custom-container">
+        <div class="row py-lg-5">
+            <div class="col-lg-12 col-md-12 mx-auto"> 
+                <div id="capa1" class="card shadow-sm position-relative">
+                    <img id="imgCapa1" class="bd-placeholder-img card-img-top rounded" alt="Imagen descriptiva">
+                    <div class="overlay">
+                        <h2 id="capa1Nombre" class="fw-bold"></h2>
+                        <p id="capa1Descripcion" class="fw"></p>
+                        <p id="capa1Categoria" class="fw" style="color: orange;"></p>
+                        <div class="d-flex justify-content-end mt-3">
+                            <small class="text-body-secondary d-flex align-items-center me-3">
+                                <a>
+                                    <img style="border-radius: 50%;" src="./resources/img/metadatosIcon.PNG" width="30" height="30" alt="Metadatos Icon">
+                                </a>    
+                                <a id="openModal" class="ms-2">
+                                    <img style="border-radius: 50%;" src="./resources/img/pdfIcon.PNG" width="30" height="40" alt="PDF Icon">
+                                </a>  
+                            </small>
+                            <button id="btnCapa1" class="btn btn-sm btn-secondary" data-id="${item.id}">Ver más
+                                <img style="border-radius: 50%;" src="./resources/img/arrow-left.png" width="30" height="40" alt="PDF Icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-10 col-md-10 mx-auto"> <!-- Asegúrate de que sea 10 para mayor ancho -->
-            <div id="capa1" class="card shadow-sm">
-                <img id="imgCapa1" class="bd-placeholder-img card-img-top rounded" width="100%" height="300" alt="Imagen descriptiva">
-                <div class="card-body">
-                  <p id="capa1Categoria" class="card-text fw-bold" style="color: orange;"></p>
-                  <p id="capa1Nombre" class="card-text fw-bold"></p>
-                  <p id="capa1Descripcion" class="card-text fw-bold"></p>
-                  <small class="text-body-secondary">
-                      <a href="#">
-                        <img src="./resources/img/metadatosIcon.PNG" width="6%" height="55">
-                      </a>    
-                      <a id="openModal">
-                        <img src="./resources/img/pdfIcon.PNG" width="6%" height="45">
-                      </a>  
-                    </small>
-                    <button id="btnCapa1" class="btn btn-sm btn-secondary" data-id="${item.id}">Ver más</button>
-                  </div>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title" id="myModalLabel">Descargar</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Selecciona el archivo de tu interés y descárgalo.</p>
+                    <a href=""><img style="border-radius: 50%;" src="./resources/img/button-tms.png" width="95" height="80" alt="TMS"></a>
+                    <a href=""><img style="border-radius: 50%;" src="./resources/img/button-vt.png" width="95" height="80" alt="VT"></a>
+                    <a href=""><img style="border-radius: 50%;" src="./resources/img/button-wms.png" width="95" height="80" alt="WMS"></a>
+                    <a href=""><img style="border-radius: 50%;" src="./resources/img/button-zip.png" width="95" height="80" alt="ZIP"></a>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="myModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <p>Modal body text goes here.</p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-      </div>
-  </div>
-</div>
 
-  <div class="d-flex justify-content-end mb-5">
-    <div class="input-group" style="max-width: 330px;">
-      <input type="text" class="form-control">
-      <button class="btn btn-secondary">Buscar</button>
-    </div>
-  </div>  
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="galleryContainer">
-            <!-- Las tarjetas se generarán aquí mediante JavaScript -->
+    <div class="d-flex justify-content-end mb-5">
+        <div class="input-group" style="max-width: 330px;">
+            <input type="text" class="form-control" placeholder="Buscar...">
+            <button class="btn btn-secondary">Buscar</button>
+        </div>
+    </div> 
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="galleryContainer">
+                <!-- Las tarjetas se generarán aquí mediante JavaScript -->
+            </div>
         </div>
     </div>
-</div>
-
 </main>
 
 <footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
-    </body>
-</html>
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p class="mb-0">New to

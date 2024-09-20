@@ -10,6 +10,21 @@
 #imgCapaDetalle {
   margin-right: 50; /* Ajusta según tu preferencia */
 }
+
+.modal-header, .modal-body {
+  text-align: center; /* Centra el texto */
+}
+
+.custom-container {
+  max-width: 1200px; /* Cambia este valor según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.modal-body a {
+  display: inline-block; /* Permite alinear las imágenes horizontalmente */
+  margin: 10px; /* Espaciado entre las imágenes */
+}
+
 :root,
 [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
